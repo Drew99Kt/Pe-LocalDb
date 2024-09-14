@@ -19,22 +19,34 @@ CachePlugin is a caching system for PocketMine-MP that provides caching services
 To use the caching system in your plugin, you need to access the cache provided by CachePlugin. Here is an example of how to do this:
 
 ```php
-use LocalDb\Main as LocalDb;
+use LocalDb\Main as LocalDb; 
+use LocalDb\LocalDbInterface;
+
 
 class YourPlugin extends PluginBase {
+
+    public LocalDbInterface $localDb;
+
     public function onEnable(): void {
-        $localDb = LocalDb::getCache();
-        $pluginName = $this->getName();
+    	//define $localDb
+        $this->localDb = LocalDb::getCache();
 
-        // Set a localDb entry
-        $localDb->set($pluginName, "example_key", "example_value");
-
-        // Get a localDb entry
-        $value = $localDb->get($pluginName, "example_key");
+        //example: getting name of this plugin
+        $this->pluginName = $this->getName();
+        //setting a key in localDb with the plugin name
+		$this->localDb->set( $this->pluginName, "example_key");
+		//get the value
+		$value =  $this->localDb->get( $this->pluginName);
+		//print the value
         $this->getLogger()->info("Cached value: " . $value);
 
         // Delete a localDb entry
-        $localDb->delete($pluginName, "example_key");
+        $this->localDb->delete($pluginName);
+
+        // Clear all localDb entries
+       	$this->localDb->clear();
+    }
+}
 
         // Clear all localDb entries
         $localDb->clear();
