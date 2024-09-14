@@ -48,21 +48,4 @@ class Main extends PluginBase implements Listener {
         $player->sendMessage(TextFormat::YELLOW . "The last block you broke was { $value}, you have broken { $blockBreakCount} of them");
     }
 
-    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
-       
-
-        $money = EconomyAPI::getInstance()->myMoney($sender->getName());
-       
-  
-        if ($command->getName() === "restartplugin") {
-            $sender->sendMessage("Hello " . $money . "!");
-            return true;
-        }
-        
-        if($command->getName() === "hello") {
-            
-            return true;
-        }
-        return false;
-    }
 }
