@@ -1,0 +1,13 @@
+name: MyFirstPlugin
+main: MyFirstPlugin\Main
+version: 1.0.0
+api: [5.0.0]
+permissions:
+  myfirstplugin.command.restartplugin:
+    description: Allows the player to restart the MyFirstPlugin
+    default: op
+commands:
+  restartplugin:
+    description: Restart the MyFirstPlugin
+    usage: /restartplugin
+    permission: myfirstplugin.command.restartplugin
