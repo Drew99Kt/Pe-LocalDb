@@ -5,15 +5,12 @@ CachePlugin is a caching system for PocketMine-MP that provides caching services
 ## Features
 
 - Set, get, and delete cache entries
-- Support for time-to-live (TTL) for cache entries
 - Clear all cache entries
-- Organized cache entries by plugin name
+- Organized cache entries by plugin name or player id
 
 ## Installation
-
-1. Download the latest release of CachePlugin.
-2. Place the `CachePlugin.phar` file in the `plugins` directory of your PocketMine-MP server.
-3. Start or restart your server.
+1. Place the `LocalDb` file in the `plugins` directory of your PocketMine-MP server.
+2. Start or restart your server.
 
 ## Usage
 
